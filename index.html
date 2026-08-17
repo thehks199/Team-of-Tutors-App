@@ -7,7 +7,6 @@
 <title>Team of Tutors</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,232 +15,208 @@
 }
 
 body{
-    background:#f2f5f9;
+    background:#f1f5f9;
     color:#172b4d;
-    padding-bottom:80px;
+    padding-bottom:90px;
 }
 
 /* ================= HEADER ================= */
 
 .header{
     background:#075985;
-    color:white;
-    padding:20px 18px 25px;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    color:#fff;
+    padding:22px 18px 25px;
+    border-bottom-left-radius:22px;
+    border-bottom-right-radius:22px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
 .header-top{
     display:flex;
     align-items:center;
-    justify-content:space-between;
 }
 
 .logo{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    background:white;
+    width:58px;
+    height:58px;
+    background:#fff;
     color:#075985;
+    border-radius:50%;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:18px;
+    align-items:center;
+    font-size:21px;
     font-weight:bold;
+    flex-shrink:0;
 }
 
 .title{
     flex:1;
-    margin-left:12px;
+    margin-left:14px;
 }
 
 .title h1{
-    font-size:20px;
+    font-size:22px;
+    line-height:1.2;
 }
 
 .title p{
     font-size:12px;
-    opacity:.85;
-    margin-top:3px;
+    margin-top:5px;
+    opacity:.9;
 }
 
 .notification{
-    font-size:24px;
+    font-size:28px;
     cursor:pointer;
+    margin-left:8px;
 }
 
 /* ================= PROFILE ================= */
 
 .profile{
-    background:white;
-    margin:15px;
+    background:#fff;
+    margin:18px 15px;
     padding:18px;
-    border-radius:15px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    border-radius:18px;
     display:flex;
     align-items:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 .profile-pic{
-    width:60px;
-    height:60px;
-    border-radius:50%;
+    width:65px;
+    height:65px;
     background:#dbeafe;
+    border-radius:50%;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:28px;
+    align-items:center;
+    font-size:31px;
     flex-shrink:0;
 }
 
 .profile-info{
-    margin-left:14px;
+    margin-left:15px;
 }
 
 .profile-info h2{
-    font-size:17px;
-    margin-bottom:5px;
+    font-size:18px;
+    color:#172b4d;
 }
 
 .profile-info p{
-    font-size:12px;
     color:#64748b;
-    margin-top:4px;
+    font-size:12px;
+    margin-top:5px;
 }
 
-/* ================= GENERAL CARDS ================= */
+/* ================= CARD ================= */
 
-.status-card,
-.face-card{
+.card-box{
+    background:#fff;
     margin:15px;
-    background:white;
-    border-radius:15px;
     padding:18px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    border-radius:17px;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
 }
 
-.status-header{
+.card-heading{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.status-header h3{
+.card-heading h3{
     font-size:16px;
 }
 
 .badge{
+    padding:6px 10px;
+    border-radius:20px;
     background:#fef3c7;
     color:#92400e;
-    padding:5px 10px;
-    border-radius:20px;
     font-size:10px;
     font-weight:bold;
-}
-
-/* ================= LOCATION ================= */
-
-.location{
-    margin-top:15px;
-    background:#f8fafc;
-    padding:12px;
-    border-radius:10px;
-    font-size:13px;
-}
-
-/* ================= BUTTONS ================= */
-
-.attendance-btn,
-.face-btn{
-    width:100%;
-    margin-top:15px;
-    border:none;
-    background:#075985;
-    color:white;
-    padding:14px;
-    border-radius:10px;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.attendance-btn:active,
-.face-btn:active{
-    transform:scale(.98);
-}
-
-.face-btn{
-    background:#0f766e;
 }
 
 /* ================= FACE VERIFICATION ================= */
 
 .face-description{
-    font-size:12px;
     color:#64748b;
+    font-size:12px;
     line-height:1.5;
     margin-top:8px;
 }
 
-.camera-box{
+.camera-container{
     display:none;
     position:relative;
+    width:100%;
     margin-top:15px;
-    background:#111827;
-    border-radius:12px;
     overflow:hidden;
+    border-radius:14px;
+    background:#111827;
 }
 
-.camera-box video{
-    width:100%;
+.camera-container video{
     display:block;
+    width:100%;
+    min-height:260px;
+    object-fit:cover;
     transform:scaleX(-1);
 }
 
-.face-frame{
+.face-outline{
     position:absolute;
-    top:12%;
-    left:22%;
-    width:56%;
-    height:76%;
-    border:3px solid white;
+    width:55%;
+    height:70%;
+    left:22.5%;
+    top:15%;
+    border:3px solid #fff;
     border-radius:50%;
-    box-shadow:0 0 15px rgba(255,255,255,.5);
+    box-shadow:0 0 20px rgba(255,255,255,.35);
 }
 
 .scan-line{
     position:absolute;
-    left:20%;
-    right:20%;
+    left:18%;
+    width:64%;
     height:3px;
+    top:18%;
     background:#22c55e;
-    top:20%;
     box-shadow:0 0 12px #22c55e;
-    animation:faceScan 2s infinite;
+    animation:scan 2s infinite;
 }
 
-@keyframes faceScan{
+@keyframes scan{
+    0%{top:18%}
+    50%{top:78%}
+    100%{top:18%}
+}
 
-    0%{
-        top:20%;
-    }
+.face-button{
+    width:100%;
+    margin-top:15px;
+    border:none;
+    border-radius:11px;
+    padding:14px;
+    background:#0f766e;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-    50%{
-        top:75%;
-    }
-
-    100%{
-        top:20%;
-    }
-
+.face-button:active{
+    transform:scale(.98);
 }
 
 .face-result{
     display:none;
     margin-top:12px;
     padding:13px;
-    border-radius:10px;
+    border-radius:11px;
     background:#dcfce7;
     color:#166534;
     text-align:center;
@@ -249,178 +224,50 @@ body{
     font-weight:bold;
 }
 
-/* ================= SERVICES ================= */
+/* ================= LOCATION ================= */
+
+.location{
+    background:#f8fafc;
+    padding:12px;
+    margin-top:14px;
+    border-radius:10px;
+    font-size:13px;
+}
+
+.attendance-button{
+    width:100%;
+    border:none;
+    background:#075985;
+    color:#fff;
+    padding:14px;
+    margin-top:14px;
+    border-radius:11px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= SECTION ================= */
 
 .section-title{
-    margin:20px 15px 10px;
-    font-size:16px;
+    margin:22px 15px 11px;
+    font-size:17px;
     font-weight:bold;
 }
 
-.grid{
+/* ================= SERVICE GRID ================= */
+
+.services{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:12px;
     padding:0 15px;
 }
 
-.card{
-    background:white;
-    border-radius:14px;
-    padding:18px 12px;
+.service{
+    background:#fff;
+    padding:19px 12px;
     text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,.07);
-    cursor:pointer;
-    transition:.2s;
-}
-
-.card:active{
-    transform:scale(.97);
-}
-
-.card-icon{
-    font-size:28px;
-    margin-bottom:8px;
-}
-
-.card h4{
-    font-size:14px;
-}
-
-.card p{
-    font-size:10px;
-    color:#64748b;
-    margin-top:4px;
-}
-
-/* ================= NOTICE ================= */
-
-.notice{
-    margin:15px;
-    background:white;
-    border-left:5px solid #075985;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,.06);
-}
-
-.notice h3{
-    font-size:14px;
-    margin-bottom:6px;
-}
-
-.notice p{
-    font-size:12px;
-    color:#64748b;
-    line-height:1.5;
-}
-
-/* ================= BOTTOM NAVIGATION ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    height:68px;
-    background:white;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    box-shadow:0 -3px 15px rgba(0,0,0,.12);
-    z-index:100;
-}
-
-.nav-item{
-    text-align:center;
-    color:#64748b;
-    font-size:10px;
-    cursor:pointer;
-}
-
-.nav-item span{
-    display:block;
-    font-size:21px;
-    margin-bottom:3px;
-}
-
-.nav-item.active{
-    color:#075985;
-    font-weight:bold;
-}
-
-/* ================= DESKTOP ================= */
-
-@media(min-width:700px){
-
-    body{
-        max-width:600px;
-        margin:auto;
-    }
-
-    .bottom-nav{
-        max-width:600px;
-        margin:auto;
-    }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-
-<!-- ================================================= -->
-<!-- HEADER -->
-<!-- ================================================= -->
-
-<div class="header">
-
-    <div class="header-top">
-
-        <div class="logo">
-            TT
-        </div>
-
-        <div class="title">
-
-            <h1>
-                Team of Tutors
-            </h1>
-
-            <p>
-                Digital Teacher Management System
-            </p>
-
-        </div>
-
-        <div class="notification"
-             onclick="notifications()">
-
-            🔔
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- TEACHER PROFILE -->
-<!-- ================================================= -->
-
-<div class="profile">
-
-    <div class="profile-pic">
-
-        👨‍🏫
-
-    </div>
-
-    <div class="profile-info">
-
-        <h2>
-            Syed Sibtain Raza
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    cursor
