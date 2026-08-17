@@ -7,6 +7,7 @@
 <title>Team of Tutors</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -20,6 +21,8 @@ body{
     padding-bottom:80px;
 }
 
+/* ================= HEADER ================= */
+
 .header{
     background:#075985;
     color:white;
@@ -32,6 +35,7 @@ body{
 .header-top{
     display:flex;
     align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
@@ -43,6 +47,7 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
+    font-size:18px;
     font-weight:bold;
 }
 
@@ -63,7 +68,10 @@ body{
 
 .notification{
     font-size:24px;
+    cursor:pointer;
 }
+
+/* ================= PROFILE ================= */
 
 .profile{
     background:white;
@@ -84,6 +92,7 @@ body{
     align-items:center;
     justify-content:center;
     font-size:28px;
+    flex-shrink:0;
 }
 
 .profile-info{
@@ -92,6 +101,7 @@ body{
 
 .profile-info h2{
     font-size:17px;
+    margin-bottom:5px;
 }
 
 .profile-info p{
@@ -99,6 +109,8 @@ body{
     color:#64748b;
     margin-top:4px;
 }
+
+/* ================= GENERAL CARDS ================= */
 
 .status-card,
 .face-card{
@@ -128,6 +140,8 @@ body{
     font-weight:bold;
 }
 
+/* ================= LOCATION ================= */
+
 .location{
     margin-top:15px;
     background:#f8fafc;
@@ -135,6 +149,8 @@ body{
     border-radius:10px;
     font-size:13px;
 }
+
+/* ================= BUTTONS ================= */
 
 .attendance-btn,
 .face-btn{
@@ -150,9 +166,90 @@ body{
     cursor:pointer;
 }
 
+.attendance-btn:active,
+.face-btn:active{
+    transform:scale(.98);
+}
+
 .face-btn{
     background:#0f766e;
 }
+
+/* ================= FACE VERIFICATION ================= */
+
+.face-description{
+    font-size:12px;
+    color:#64748b;
+    line-height:1.5;
+    margin-top:8px;
+}
+
+.camera-box{
+    display:none;
+    position:relative;
+    margin-top:15px;
+    background:#111827;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.camera-box video{
+    width:100%;
+    display:block;
+    transform:scaleX(-1);
+}
+
+.face-frame{
+    position:absolute;
+    top:12%;
+    left:22%;
+    width:56%;
+    height:76%;
+    border:3px solid white;
+    border-radius:50%;
+    box-shadow:0 0 15px rgba(255,255,255,.5);
+}
+
+.scan-line{
+    position:absolute;
+    left:20%;
+    right:20%;
+    height:3px;
+    background:#22c55e;
+    top:20%;
+    box-shadow:0 0 12px #22c55e;
+    animation:faceScan 2s infinite;
+}
+
+@keyframes faceScan{
+
+    0%{
+        top:20%;
+    }
+
+    50%{
+        top:75%;
+    }
+
+    100%{
+        top:20%;
+    }
+
+}
+
+.face-result{
+    display:none;
+    margin-top:12px;
+    padding:13px;
+    border-radius:10px;
+    background:#dcfce7;
+    color:#166534;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* ================= SERVICES ================= */
 
 .section-title{
     margin:20px 15px 10px;
@@ -174,6 +271,7 @@ body{
     text-align:center;
     box-shadow:0 3px 10px rgba(0,0,0,.07);
     cursor:pointer;
+    transition:.2s;
 }
 
 .card:active{
@@ -195,75 +293,7 @@ body{
     margin-top:4px;
 }
 
-/* FACE VERIFICATION */
-
-.face-card h3{
-    font-size:16px;
-}
-
-.face-card p{
-    font-size:12px;
-    color:#64748b;
-    margin-top:5px;
-    line-height:1.5;
-}
-
-.camera{
-    display:none;
-    margin-top:15px;
-    position:relative;
-    background:#111827;
-    border-radius:12px;
-    overflow:hidden;
-}
-
-.camera video{
-    width:100%;
-    display:block;
-    transform:scaleX(-1);
-}
-
-.scan-line{
-    position:absolute;
-    left:10%;
-    right:10%;
-    height:3px;
-    background:#22c55e;
-    top:20%;
-    box-shadow:0 0 12px #22c55e;
-    animation:scan 2s infinite;
-}
-
-@keyframes scan{
-    0%{top:20%}
-    50%{top:75%}
-    100%{top:20%}
-}
-
-.camera-frame{
-    position:absolute;
-    top:15%;
-    left:20%;
-    width:60%;
-    height:70%;
-    border:3px solid rgba(255,255,255,.8);
-    border-radius:50%;
-}
-
-.verification-status{
-    display:none;
-    margin-top:15px;
-    padding:14px;
-    border-radius:10px;
-    text-align:center;
-    font-weight:bold;
-    font-size:13px;
-}
-
-.success{
-    background:#dcfce7;
-    color:#166534;
-}
+/* ================= NOTICE ================= */
 
 .notice{
     margin:15px;
@@ -285,6 +315,8 @@ body{
     line-height:1.5;
 }
 
+/* ================= BOTTOM NAVIGATION ================= */
+
 .bottom-nav{
     position:fixed;
     bottom:0;
@@ -303,6 +335,7 @@ body{
     text-align:center;
     color:#64748b;
     font-size:10px;
+    cursor:pointer;
 }
 
 .nav-item span{
@@ -316,6 +349,8 @@ body{
     font-weight:bold;
 }
 
+/* ================= DESKTOP ================= */
+
 @media(min-width:700px){
 
     body{
@@ -327,13 +362,19 @@ body{
         max-width:600px;
         margin:auto;
     }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
+
+<!-- ================================================= -->
 <!-- HEADER -->
+<!-- ================================================= -->
 
 <div class="header">
 
@@ -344,12 +385,22 @@ body{
         </div>
 
         <div class="title">
-            <h1>Team of Tutors</h1>
-            <p>Digital Teacher Management System</p>
+
+            <h1>
+                Team of Tutors
+            </h1>
+
+            <p>
+                Digital Teacher Management System
+            </p>
+
         </div>
 
-        <div class="notification">
+        <div class="notification"
+             onclick="notifications()">
+
             🔔
+
         </div>
 
     </div>
@@ -357,74 +408,19 @@ body{
 </div>
 
 
-<!-- PROFILE -->
+<!-- ================================================= -->
+<!-- TEACHER PROFILE -->
+<!-- ================================================= -->
 
 <div class="profile">
 
     <div class="profile-pic">
+
         👨‍🏫
+
     </div>
 
     <div class="profile-info">
 
-        <h2>Syed Sibtain Raza</h2>
-
-        <p>📱 0300-2627199</p>
-
-        <p>👨‍🏫 Team of Tutors</p>
-
-    </div>
-
-</div>
-
-
-<!-- FACE VERIFICATION -->
-
-<div class="face-card">
-
-    <h3>🔐 Face Verification</h3>
-
-    <p>
-        Use the camera for this demonstration of teacher
-        identity verification.
-    </p>
-
-    <div class="camera" id="camera">
-
-        <video id="video" autoplay playsinline></video>
-
-        <div class="camera-frame"></div>
-
-        <div class="scan-line"></div>
-
-    </div>
-
-    <button class="face-btn" onclick="startFaceVerification()">
-
-        📸 START FACE VERIFICATION
-
-    </button>
-
-    <div id="verificationStatus"
-         class="verification-status success">
-
-        ✅ FACE VERIFIED SUCCESSFULLY
-
-    </div>
-
-</div>
-
-
-<!-- ATTENDANCE -->
-
-<div class="status-card">
-
-    <div class="status-header">
-
-        <h3>Today's Attendance</h3>
-
-        <div class="badge">
-            NOT MARKED
-        </
-
-
+        <h2>
+            Syed Sibtain Raza
