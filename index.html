@@ -270,4 +270,904 @@ body{
     text-align:center;
     border-radius:16px;
     box-shadow:0 4px 12px rgba(0,0,0,.06);
-    cursor
+    cursor:pointer;
+}
+
+.service:active{
+    transform:scale(.97);
+}
+
+.service-icon{
+    font-size:29px;
+    margin-bottom:8px;
+}
+
+.service h4{
+    font-size:14px;
+}
+
+.service p{
+    color:#64748b;
+    font-size:10px;
+    margin-top:5px;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    background:#fff;
+    margin:15px;
+    padding:16px;
+    border-left:5px solid #075985;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.notice h3{
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.notice p{
+    color:#64748b;
+    font-size:12px;
+    line-height:1.6;
+}
+
+/* ================= QUICK INFORMATION ================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    padding:0 15px;
+}
+
+.info-box{
+    background:#fff;
+    border-radius:13px;
+    padding:13px 5px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+
+.info-box strong{
+    display:block;
+    font-size:18px;
+    color:#075985;
+}
+
+.info-box span{
+    display:block;
+    margin-top:4px;
+    font-size:9px;
+    color:#64748b;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:72px;
+    background:#fff;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    box-shadow:0 -4px 15px rgba(0,0,0,.12);
+    z-index:999;
+}
+
+.nav-item{
+    text-align:center;
+    color:#64748b;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.nav-item span{
+    display:block;
+    font-size:22px;
+    margin-bottom:3px;
+}
+
+.nav-item.active{
+    color:#075985;
+    font-weight:bold;
+}
+
+/* ================= POPUP ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:#fff;
+    width:100%;
+    max-width:400px;
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+}
+
+.modal-content h3{
+    margin-bottom:10px;
+}
+
+.modal-content p{
+    color:#64748b;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.close-button{
+    width:100%;
+    margin-top:17px;
+    padding:12px;
+    border:none;
+    background:#075985;
+    color:#fff;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:700px){
+
+    body{
+        max-width:600px;
+        margin:auto;
+    }
+
+    .bottom-nav{
+        max-width:600px;
+        margin:auto;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
+<div class="header">
+
+    <div class="header-top">
+
+        <div class="logo">
+            TT
+        </div>
+
+        <div class="title">
+            <h1>Team of Tutors</h1>
+            <p>Digital Teacher Management System</p>
+        </div>
+
+        <div class="notification"
+             onclick="showNotification()">
+            🔔
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- TEACHER PROFILE -->
+<!-- ================================================= -->
+
+<div class="profile">
+
+    <div class="profile-pic">
+        👨‍🏫
+    </div>
+
+    <div class="profile-info">
+
+        <h2>Syed Sibtain Raza</h2>
+
+        <p>📱 0300-2627199</p>
+
+        <p>👨‍🏫 Team of Tutors</p>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- QUICK INFORMATION -->
+<!-- ================================================= -->
+
+<div class="info-grid">
+
+    <div class="info-box">
+        <strong>0</strong>
+        <span>Attendance</span>
+    </div>
+
+    <div class="info-box">
+        <strong>0</strong>
+        <span>Leave</span>
+    </div>
+
+    <div class="info-box">
+        <strong>0</strong>
+        <span>Notices</span>
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- FACE VERIFICATION -->
+<!-- ================================================= -->
+
+<div class="card-box">
+
+    <div class="card-heading">
+
+        <h3>🔐 Face Verification</h3>
+
+        <div class="badge"
+             id="faceBadge">
+            NOT VERIFIED
+        </div>
+
+    </div>
+
+    <p class="face-description">
+        Verify teacher identity before marking attendance.
+        This is a demonstration feature only.
+    </p>
+
+    <div class="camera-container"
+         id="cameraContainer">
+
+        <video id="camera"
+               autoplay
+               playsinline>
+        </video>
+
+        <div class="face-outline"></div>
+
+        <div class="scan-line"></div>
+
+    </div>
+
+    <button class="face-button"
+            onclick="startFaceVerification()">
+
+        📸 START FACE VERIFICATION
+
+    </button>
+
+    <div class="face-result"
+         id="faceResult">
+
+        ✅ FACE VERIFIED SUCCESSFULLY
+
+        <br>
+
+        <small>
+            Demo verification completed
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- ATTENDANCE -->
+<!-- ================================================= -->
+
+<div class="card-box">
+
+    <div class="card-heading">
+
+        <h3>Today's Attendance</h3>
+
+        <div class="badge"
+             id="attendanceBadge">
+
+            NOT MARKED
+
+        </div>
+
+    </div>
+
+    <div class="location">
+
+        📍 Location Status:
+        <b id="locationStatus">
+            Checking...
+        </b>
+
+    </div>
+
+    <button class="attendance-button"
+            onclick="markAttendance()">
+
+        🟢 MARK ATTENDANCE
+
+    </button>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- TEACHER SERVICES -->
+<!-- ================================================= -->
+
+<div class="section-title">
+    Teacher Services
+</div>
+
+<div class="services">
+
+    <div class="service"
+         onclick="attendanceHistory()">
+
+        <div class="service-icon">
+            📅
+        </div>
+
+        <h4>Attendance</h4>
+
+        <p>View attendance history</p>
+
+    </div>
+
+
+    <div class="service"
+         onclick="leaveApplication()">
+
+        <div class="service-icon">
+            📝
+        </div>
+
+        <h4>Leave</h4>
+
+        <p>Apply for leave</p>
+
+    </div>
+
+
+    <div class="service"
+         onclick="lessonPlans()">
+
+        <div class="service-icon">
+            📚
+        </div>
+
+        <h4>Lesson Plans</h4>
+
+        <p>Teaching plans</p>
+
+    </div>
+
+
+    <div class="service"
+         onclick="resources()">
+
+        <div class="service-icon">
+            📖
+        </div>
+
+        <h4>Resources</h4>
+
+        <p>Teaching materials</p>
+
+    </div>
+
+
+    <div class="service"
+         onclick="schoolInfo()">
+
+        <div class="service-icon">
+            🏫
+        </div>
+
+        <h4>School</h4>
+
+        <p>School information</p>
+
+    </div>
+
+
+    <div class="service"
+         onclick="profile()">
+
+        <div class="service-icon">
+            👤
+        </div>
+
+        <h4>Profile</h4>
+
+        <p>Teacher profile</p>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- OFFICIAL NOTICE -->
+<!-- ================================================= -->
+
+<div class="section-title">
+    Official Notice
+</div>
+
+<div class="notice">
+
+    <h3>
+        📢 Team of Tutors
+    </h3>
+
+    <p>
+        Welcome to the Team of Tutors Digital Teacher
+        Management System. Attendance, teacher services,
+        lesson plans and educational resources will be
+        available through this platform.
+    </p>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BOTTOM NAVIGATION -->
+<!-- ================================================= -->
+
+<div class="bottom-nav">
+
+    <div class="nav-item active"
+         onclick="goHome()">
+
+        <span>🏠</span>
+        Home
+
+    </div>
+
+
+    <div class="nav-item"
+         onclick="attendanceHistory()">
+
+        <span>📅</span>
+        Attendance
+
+    </div>
+
+
+    <div class="nav-item"
+         onclick="resources()">
+
+        <span>📚</span>
+        Resources
+
+    </div>
+
+
+    <div class="nav-item"
+         onclick="profile()">
+
+        <span>👤</span>
+        Profile
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- MODAL -->
+<!-- ================================================= -->
+
+<div class="modal"
+     id="modal">
+
+    <div class="modal-content">
+
+        <h3 id="modalTitle">
+            Team of Tutors
+        </h3>
+
+        <p id="modalMessage">
+            Welcome.
+        </p>
+
+        <button class="close-button"
+                onclick="closeModal()">
+
+            CLOSE
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+let cameraStream = null;
+
+
+/* ================================================= */
+/* MODAL */
+/* ================================================= */
+
+function showModal(title,message){
+
+    document.getElementById("modalTitle").innerHTML =
+        title;
+
+    document.getElementById("modalMessage").innerHTML =
+        message;
+
+    document.getElementById("modal").style.display =
+        "flex";
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal").style.display =
+        "none";
+}
+
+
+/* ================================================= */
+/* FACE VERIFICATION DEMO */
+/* ================================================= */
+
+async function startFaceVerification(){
+
+    const container =
+        document.getElementById("cameraContainer");
+
+    const video =
+        document.getElementById("camera");
+
+    const badge =
+        document.getElementById("faceBadge");
+
+    const result =
+        document.getElementById("faceResult");
+
+
+    result.style.display = "none";
+
+    badge.innerHTML = "SCANNING...";
+
+    badge.style.background = "#fef3c7";
+
+    badge.style.color = "#92400e";
+
+
+    try{
+
+        if(
+            !navigator.mediaDevices ||
+            !navigator.mediaDevices.getUserMedia
+        ){
+
+            throw new Error("Camera not supported");
+
+        }
+
+
+        cameraStream =
+            await navigator.mediaDevices.getUserMedia({
+
+                video:{
+                    facingMode:"user"
+                },
+
+                audio:false
+
+            });
+
+
+        video.srcObject =
+            cameraStream;
+
+        container.style.display =
+            "block";
+
+
+        setTimeout(function(){
+
+            badge.innerHTML =
+                "VERIFIED";
+
+            badge.style.background =
+                "#dcfce7";
+
+            badge.style.color =
+                "#166534";
+
+            result.style.display =
+                "block";
+
+
+            if(cameraStream){
+
+                cameraStream
+                    .getTracks()
+                    .forEach(function(track){
+
+                        track.stop();
+
+                    });
+
+                cameraStream = null;
+
+            }
+
+        },4000);
+
+
+    }
+
+    catch(error){
+
+        badge.innerHTML =
+            "NOT VERIFIED";
+
+        badge.style.background =
+            "#fee2e2";
+
+        badge.style.color =
+            "#991b1b";
+
+
+        showModal(
+            "Camera Permission",
+            "Please allow camera access to test the Face Verification demo."
+        );
+
+    }
+
+}
+
+
+/* ================================================= */
+/* ATTENDANCE */
+/* ================================================= */
+
+function markAttendance(){
+
+    const faceBadge =
+        document.getElementById("faceBadge");
+
+    if(
+        faceBadge.innerHTML.trim() !==
+        "VERIFIED"
+    ){
+
+        showModal(
+            "Face Verification Required",
+            "Please complete Face Verification before marking attendance."
+        );
+
+        return;
+
+    }
+
+
+    const attendanceBadge =
+        document.getElementById("attendanceBadge");
+
+
+    attendanceBadge.innerHTML =
+        "MARKED";
+
+    attendanceBadge.style.background =
+        "#dcfce7";
+
+    attendanceBadge.style.color =
+        "#166534";
+
+
+    showModal(
+        "Attendance Marked",
+        "✅ Attendance has been marked successfully.<br><br>" +
+        "<b>Teacher:</b> Syed Sibtain Raza<br>" +
+        "<b>Phone:</b> 0300-2627199<br>" +
+        "<br><small>This is a demonstration only.</small>"
+    );
+
+}
+
+
+/* ================================================= */
+/* ATTENDANCE HISTORY */
+/* ================================================= */
+
+function attendanceHistory(){
+
+    showModal(
+        "Attendance History",
+        "📅<br><br>" +
+        "Today's status: Demo Record<br>" +
+        "Complete attendance history will be available in the next version."
+    );
+
+}
+
+
+/* ================================================= */
+/* LEAVE */
+/* ================================================= */
+
+function leaveApplication(){
+
+    showModal(
+        "Leave Application",
+        "📝<br><br>" +
+        "Teachers will be able to submit and track leave applications here."
+    );
+
+}
+
+
+/* ================================================= */
+/* LESSON PLANS */
+/* ================================================= */
+
+function lessonPlans(){
+
+    showModal(
+        "Lesson Plans",
+        "📚<br><br>" +
+        "Team of Tutors lesson plans will be available here."
+    );
+
+}
+
+
+/* ================================================= */
+/* RESOURCES */
+/* ================================================= */
+
+function resources(){
+
+    showModal(
+        "Teaching Resources",
+        "📖<br><br>" +
+        "Books, PDFs and educational resources will be available here."
+    );
+
+}
+
+
+/* ================================================= */
+/* SCHOOL */
+/* ================================================= */
+
+function schoolInfo(){
+
+    showModal(
+        "School Information",
+        "🏫<br><br>" +
+        "School profile, location, SEMIS information and other details will appear here."
+    );
+
+}
+
+
+/* ================================================= */
+/* PROFILE */
+/* ================================================= */
+
+function profile(){
+
+    showModal(
+        "Teacher Profile",
+        "👤<br><br>" +
+        "<b>Name:</b> Syed Sibtain Raza<br>" +
+        "<b>Phone:</b> 0300-2627199<br>" +
+        "<b>Organization:</b> Team of Tutors"
+    );
+
+}
+
+
+/* ================================================= */
+/* NOTIFICATION */
+/* ================================================= */
+
+function showNotification(){
+
+    showModal(
+        "Notifications",
+        "🔔<br><br>" +
+        "No new notifications."
+    );
+
+}
+
+
+/* ================================================= */
+/* HOME */
+/* ================================================= */
+
+function goHome(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* ================================================= */
+/* LOCATION */
+/* ================================================= */
+
+if(
+    navigator.geolocation
+){
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position){
+
+            document.getElementById(
+                "locationStatus"
+            ).innerHTML =
+                "Location Available";
+
+        },
+
+        function(){
+
+            document.getElementById(
+                "locationStatus"
+            ).innerHTML =
+                "Permission Required";
+
+        }
+
+    );
+
+}
+else{
+
+    document.getElementById(
+        "locationStatus"
+    ).innerHTML =
+        "Not Supported";
+
+}
+
+</script>
+
+</body>
+</html>
