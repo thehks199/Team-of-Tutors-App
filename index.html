@@ -1,14 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team of Tutors</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Team of Tutors</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f2f5f9;
+    color:#172b4d;
+    padding-bottom:75px;
+}
+
+/* HEADER */
+.header{
+    background:#075985;
+    color:white;
+    padding:20px 18px 25px;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:white;
+    color:#075985;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.title{
+    flex:1;
+    margin-left:12px;
+}
+
+.title h1{
+    font-size:20px;
+}
+
+.title p{
+    font-size:12px;
+    opacity:.85;
+    margin-top:3px;
+}
+
+.notification{
+    font-size:24px;
+}
+
+/* PROFILE */
+.profile{
+    background:white;
+    margin:15px;
+    padding:18px;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    display:flex;
+    align-items:center;
+}
+
+.profile-pic{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#dbeafe;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.profile-info{
+    margin-left:14px;
+}
+
+.profile-info h2{
+    font-size:17px;
+}
+
+.profile-info p{
+    font-size:12px;
+    color:#64748b;
+    margin-top:4px;
+}
+
+/* STATUS */
+.status-card{
+    margin:15px;
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.status-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.status-header h3{
+    font-size:16px;
+}
+
+.badge{
+    background:#dcfce7;
+    color:#166534;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.location{
+    margin-top:15px;
+    background:#f8fafc;
+    padding:12px;
+    border-radius:10px;
+    font-size:13px;
+}
+
+.attendance-btn{
+    width:100%;
+    margin-top:15px;
+    border:none;
+    background:#075985;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.attendance-btn:active{
+    transform:scale(.98);
+}
+
+/* GRID */
+.section-title{
+    margin:20px 15px 10px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    padding:0 15px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:18px 12px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.07);
+    cursor:pointer;
+}
+
+.card-icon{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.card h4{
+    font-size:14px;
+}
+
+.card p{
+    font-size:10px;
+    color:#64748b;
+    margin-top:4px;
+}
+
+/* NOTICE */
+.notice{
+    margin:15px;
+    background:#fff;
+    border-left:5px solid #075985;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.06);
+}
+
+.notice h3{
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.notice p{
+    font-size:12px;
+    color:#64748b;
+    line-height:1.5;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:68px;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    box-shadow:0 -3px 15px rgba(0,0,0,.12);
+    z-index:100;
+}
+
+.nav-item{
+    text-align:center;
+    color:#64748b;
+    font-size:10px;
+}
+
+.nav-item span{
+    display:block;
+    font-size:21px;
+    margin-bottom:3px;
+}
+
+.nav-item.active{
+    color:#075985;
+    font-weight:bold;
+}
+
+/* RESPONSIVE */
+@media(min-width:700px){
+    body{
+        max-width:600px;
+        margin:auto;
+    }
+
+    .bottom-nav{
+        max-width:600px;
+        margin:auto;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Team of Tutors</h1>
-    <p>Digital Teacher Management System</p>
+<!-- HEADER -->
+<div class="header">
+
+    <div class="header-top">
+
+        <div class="logo">
+            TT
+        </div>
+
+        <div class="title">
+            <h1>Team of Tutors</h1>
+            <p>Digital Teacher Management System</p>
+        </div>
+
+        <div class="notification">
+            🔔
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+    <div class="profile-pic">
+        👨‍🏫
+    </div>
+
+    <div class="profile-info">
+        <h2>Teacher Dashboard</h2>
+        <p>Welcome to Team of Tutors</p>
+    </div>
+
+</div>
+
+
+<!-- ATTENDANCE -->
+
+<div class="status-card">
+
+    <div class="status-header">
+
+        <h3>Today's Attendance</h3>
+
+        <div class="badge">
+            NOT MARKED
+        </div>
+
+    </div>
+
+    <div class="location">
+        📍 Location Status: <b>Checking...</b>
+    </div>
+
+    <button class="attendance-btn" onclick="markAttendance()">
+        🟢 MARK ATTENDANCE
+    </button>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<div class="section-title">
+    Teacher Services
+</div>
+
+<div class="grid">
+
+    <div class="card" onclick="alert('Attendance History module coming soon.')">
+        <div class="card-icon">📅</div>
+        <h4>Attendance</h4>
+        <p>View attendance history</p>
+    </div>
+
+    <div class="card" onclick="alert('Leave module coming soon.')">
+        <div class="card-icon">📝</div>
+        <h4>Leave</h4>
+        <p>Apply for leave</p>
+    </div>
+
+    <div class="card" onclick="alert('Lesson Plans module coming soon.')">
+        <div class="card-icon">📚</div>
+        <h4>Lesson Plans</h4>
+        <p>Teaching plans</p>
+    </div>
+
+    <div class="card" onclick="alert('Resources module coming soon.')">
+        <div class="card-icon">📖</div>
+        <h4>Resources</h4>
+        <p>Teaching materials</p>
+    </div>
+
+</div>
+
+
+<!-- NOTICE -->
+
+<div class="section-title">
+    Official Notice
+</div>
+
+<div class="notice">
+
+    <h3>📢 Team of Tutors</h3>
+
+    <p>
+        Welcome to the Team of Tutors Digital Teacher
+        Management System. Attendance, teacher services,
+        lesson plans and educational resources will be
+        available through this platform.
+    </p>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <div class="nav-item active">
+        <span>🏠</span>
+        Home
+    </div>
+
+    <div class="nav-item">
+        <span>📅</span>
+        Attendance
+    </div>
+
+    <div class="nav-item">
+        <span>📚</span>
+        Resources
+    </div>
+
+    <div class="nav-item">
+        <span>👤</span>
+        Profile
+    </div>
+
+</div>
+
+
+<script>
+
+function markAttendance(){
+
+    alert(
+        "Attendance Demo\n\n" +
+        "Location verification will be connected later.\n\n" +
+        "This is currently a demonstration."
+    );
+
+}
+
+</script>
 
 </body>
 </html>
